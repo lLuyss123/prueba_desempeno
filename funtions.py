@@ -1,9 +1,12 @@
+#I imported the csv because I want to save the information on it 
+# I imported the os module because I wanted to know if my file csv exist
 import csv
 import os
 
-
+# File's name
 archi_name= "studens.csv"
 
+#Function that show the options AND it will repeat until the user select a valid option
 def menu ():
     is_ok = True
     print("----- Options Menu ----- \n 1. Add new Student \n 2. Show Student's list \n 3. Search Student \n 4. Update Student info \n 5. Delete Student \n 6. Exit " )
@@ -18,7 +21,7 @@ def menu ():
         except:
             print("Option not valid*")
 
-
+#Function that show the options AND it will repeat until the user select a valid option
 def valid_option_to_contin():
     is_ok = False
     while is_ok == False:
@@ -30,7 +33,7 @@ def valid_option_to_contin():
         else:
             print("Only Yes or No")
 
-#Metoh get id
+#Metoh get id, I open the file csv and I read it then I put the info into a List
 def Metoh_getid():
     lis=[]
     with open (archi_name, mode="r") as file:
@@ -40,7 +43,7 @@ def Metoh_getid():
     return lis  
 
 
-  
+#Metoh that verify the id and the age when I enter data to the csv that the reason I need to verify the id is not on the csv so I can add the Student.
 def verify_id_age(info):
     is_ok = True
     csv_exist= os.path.exists(archi_name)
@@ -65,7 +68,7 @@ def verify_id_age(info):
                 else:
                     print("Id has to be > 0")
             except:
-                print("Id is not Validddd")
+                print("Id is not Valid")
                 
     if info =="age":
         while is_ok:
@@ -80,6 +83,7 @@ def verify_id_age(info):
                 print("Age is not Valid")
     
 
+# Verify the state and will repeact until the user enter a value option
 def verify_state():
     is_ok=True
     while is_ok:
@@ -95,7 +99,7 @@ def verify_state():
             
     
 
-
+# Verify the state and will repeact until the user enter a value option
 def valid_op2(info):
     is_ok = False
     while is_ok == False:
@@ -114,7 +118,10 @@ def valid_op2(info):
 
 
 # CSV CSV CSV  CSV CSV CSV  CSV CSV CSV   CSV CSV CSV  CSV CSV CSV  CSV CSV CSV  CSV CSV CSV  CSV CSV CSV  CSV CSV CSV  CSV
+
+
 # #Metoh Write
+# I use this function to add to the inventory for the 1st time as well I use it when I need to delet or update 1 student on the csv 
 def Metoh_Write(lis):
         with open (archi_name, mode="w",newline="") as file:
             writer= csv.DictWriter(file,fieldnames=["id","name","age","program","state"])
@@ -124,8 +131,10 @@ def Metoh_Write(lis):
                     dic
                 )
   
-  
+
+
 #Metoh get Header
+#I use this function just to know what are the field names of the csv
 def Metoh_getheader():
     with open (archi_name, mode="r") as file:
         reader= csv.DictReader(file)
@@ -134,6 +143,7 @@ def Metoh_getheader():
     
         
 #Metoh Print CSV
+# To show de csv 
 def Print_csv():
     with open (archi_name, mode="r") as file:
         reader= csv.DictReader(file)
@@ -144,6 +154,7 @@ def Print_csv():
             print(line)
         
 #Metoh Adding 
+#To add into the csv when it has students 
 def Metoh_Adding(lis):
     with open (archi_name, mode="a",newline="") as file:
         add= csv.DictWriter(file,fieldnames=Metoh_getheader())
@@ -153,6 +164,7 @@ def Metoh_Adding(lis):
                 )
 
 #Metoh Searching 
+#I Search by id or name and I dont need to change id to int because its a string and the id on the csv is a string too
 def Metoh_Searching(id=None,name=None):
     find=False
     with open (archi_name, mode="r") as file:
@@ -175,14 +187,15 @@ def Metoh_Searching(id=None,name=None):
             print("Student were not find")   
                     
 #Metoh Deleting 
-def Metoh_Deleting(id=0,name=None):
+#I Deleat by id or name and I dont need to change id to int because its a string and the id on the csv is a string too
+def Metoh_Deleting(id=None,name=None):
     lista=[]
     find=False
     with open (archi_name, mode="r") as file:
         reader= csv.DictReader(file)
         
         for dic in reader:
-            if  dic["name"]==name or int(dic["id"])==int(id):
+            if  dic["name"]==name or dic["id"]==id:
                 find=True
                 continue    
             lista.append(dic) 
@@ -194,6 +207,7 @@ def Metoh_Deleting(id=0,name=None):
     
 
 #Metoh Updating 
+#I Update by id and I dont need to change id to int because its a string and the id on the csv is a string too
 def Metoh_Updating(id):
     lista=[]
     find=False

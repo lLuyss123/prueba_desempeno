@@ -1,5 +1,13 @@
+#I imported from my functions files all my methos
+
 from funtions import *
+
+# I imported the os module because I wanted to know if my file csv exist
 import os
+
+
+
+#Here I just call all the functions that are in my functions file 
 op=menu()
 
 while op<6:
