@@ -34,9 +34,11 @@ while op<6:
             
                     
     elif op==2:
+        print("--- Showing Students ---")
         Print_csv()
     elif op==3:
-        op2= valid_op2()
+        
+        op2= valid_op2("Search")
         if op2==1:
             id= input("What's the Id: ")
             Metoh_Searching(id,None)
@@ -50,7 +52,7 @@ while op<6:
         Metoh_Updating(id)
     
     elif op==5:
-        op2= valid_op2()
+        op2= valid_op2("Delet")
         if op2==1:
             id= input("What's the Id: ")
             Metoh_Deleting(id,None)

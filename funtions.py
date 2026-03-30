@@ -96,10 +96,10 @@ def verify_state():
     
 
 
-def valid_op2():
+def valid_op2(info):
     is_ok = False
     while is_ok == False:
-        value = input("Delet by \n 1. Id \n 2. Name \n : ").lower().strip()
+        value = input(f"{info} by \n 1. Id \n 2. Name \n : ").lower().strip()
         if value == "1" or value =="id":
             is_ok = True
             return 1
