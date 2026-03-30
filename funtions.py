@@ -9,7 +9,7 @@ archi_name= "studens.csv"
 #Function that show the options AND it will repeat until the user select a valid option
 def menu ():
     is_ok = True
-    print("----- Options Menu ----- \n 1. Add new Student \n 2. Show Student's list \n 3. Search Student \n 4. Update Student info \n 5. Delete Student \n 6. Exit " )
+    print("----- Option's Menu ----- \n 1. Add new Student \n 2. Show Student's list \n 3. Search Student \n 4. Update Student's info \n 5. Delete Student \n 6. Exit " )
     while is_ok:
         try:
             op = int(input("Selecct an Option: "))
