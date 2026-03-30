@@ -15,7 +15,6 @@ You just need to run the main.py file and follow the menu
 
 
 Example:
-
 ----- Option's Menu ----- 
  1. Add new Student 
  2. Show Student's list 
