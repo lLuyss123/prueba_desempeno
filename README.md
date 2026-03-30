@@ -1,4 +1,4 @@
-# prueba_desempeno
+# performance test
 This proyect is for an educational institution that needs:
 
 *Register new students.
